@@ -3,27 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITX TALHA - MD OR BUG BOT PE</title>
+    <title>ITX TALHA DEVLOPER - VIP DEVLOPER </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Global & Reset Styles */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --gold: #ffd700;
+            --gold-glow: rgba(255, 215, 0, 0.75);
+            --red: #ff1128;
+            --red-glow: rgba(255, 17, 40, 0.75);
+            --black-core: #040406;
+            --card-surface: rgba(8, 8, 12, 0.88);
         }
 
         body {
-            background-color: #050507;
+            background-color: var(--black-core);
             color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
             display: flex;
             justify-content: center;
-            padding: 25px 12px;
+            padding: 32px 14px;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
-        /* Cyberpunk Neon Rain Matrix Canvas Background */
+        /* Subtle Scanline Texture */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.16) 0px,
+                rgba(0, 0, 0, 0.16) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* TALHA GURU Matrix Canvas */
         #cyberCanvas {
             position: fixed;
             top: 0;
@@ -32,252 +60,423 @@
             height: 100vh;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.25;
+            opacity: 0.42;
         }
 
-        /* Container */
+        /* Multi-Color Melty & Blinking Neon Keyframes */
+        @keyframes meltyNeonBlink {
+            0% {
+                border-color: var(--gold);
+                box-shadow: 0 0 14px var(--gold-glow), inset 0 0 12px rgba(255, 215, 0, 0.18);
+                filter: hue-rotate(0deg);
+            }
+            25% {
+                border-color: var(--red);
+                box-shadow: 0 0 22px var(--red-glow), inset 0 0 16px rgba(255, 17, 40, 0.22);
+                filter: hue-rotate(-15deg);
+            }
+            50% {
+                border-color: #ff6a00;
+                box-shadow: 0 0 10px rgba(255, 106, 0, 0.65), inset 0 0 10px rgba(255, 106, 0, 0.15);
+                filter: hue-rotate(15deg);
+            }
+            75% {
+                border-color: var(--gold);
+                box-shadow: 0 0 24px var(--gold-glow), inset 0 0 18px rgba(255, 215, 0, 0.25);
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                border-color: var(--red);
+                box-shadow: 0 0 14px var(--red-glow), inset 0 0 12px rgba(255, 17, 40, 0.18);
+                filter: hue-rotate(-10deg);
+            }
+        }
+
+        @keyframes meltyTitleShift {
+            0% {
+                color: var(--gold);
+                text-shadow: 0 0 12px var(--gold-glow), 0 0 28px var(--red-glow);
+                transform: scale(1) skewX(0deg);
+            }
+            33% {
+                color: #ff4d4d;
+                text-shadow: 0 0 16px var(--red-glow), 0 0 34px var(--gold-glow);
+                transform: scale(1.015) skewX(-2deg);
+            }
+            66% {
+                color: #ffb703;
+                text-shadow: 0 0 10px rgba(255, 183, 3, 0.8), 0 0 24px var(--red-glow);
+                transform: scale(0.992) skewX(2deg);
+            }
+            100% {
+                color: var(--gold);
+                text-shadow: 0 0 12px var(--gold-glow), 0 0 28px var(--red-glow);
+                transform: scale(1) skewX(0deg);
+            }
+        }
+
+        @keyframes meltyBarFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes blinkPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+
+        /* Main Wrapper */
         .wrapper {
             width: 100%;
-            max-width: 480px;
-            background-color: rgba(6, 6, 7, 0.9);
-            border: 1px solid #141416;
-            padding: 22px;
-            border-radius: 16px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.9);
-            backdrop-filter: blur(4px);
+            max-width: 540px;
+            background: linear-gradient(155deg, rgba(12, 12, 16, 0.92), rgba(4, 4, 6, 0.96));
+            border: 1.5px solid var(--gold);
+            padding: 28px 22px;
+            border-radius: 22px;
+            backdrop-filter: blur(10px);
             z-index: 1;
+            position: relative;
+            animation: meltyNeonBlink 4.2s infinite alternate;
+        }
+
+        /* Top Status Bar */
+        .top-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.22);
+            font-weight: 700;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--red), 0 0 18px var(--gold);
+            margin-right: 6px;
+            animation: blinkPulse 0.9s infinite;
         }
 
         /* Header Section */
         header {
             text-align: center;
-            margin-bottom: 35px;
-            position: relative;
+            margin-bottom: 32px;
         }
 
         .main-title {
-            color: #ff1a1a;
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-shadow: 0 0 6px rgba(255, 26, 26, 0.4), 0 0 15px rgba(255, 26, 26, 0.2);
-            margin-bottom: 6px;
-            animation: dimBlinkHeader 4s infinite ease-in-out;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.95rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            line-height: 1.25;
+            animation: meltyTitleShift 3s infinite ease-in-out;
         }
 
         .subtitle {
-            color: #ff4d4d;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-shadow: 0 0 4px rgba(255, 77, 77, 0.3);
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(255, 17, 40, 0.2), rgba(255, 215, 0, 0.2));
+            border: 1px solid var(--gold);
+            color: #ffe66d;
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: blinkPulse 2.4s infinite;
         }
 
-        @keyframes dimBlink {
-            0%, 100% {
-                border-color: rgba(255, 0, 0, 0.35);
-                box-shadow: inset 0 0 12px rgba(255, 0, 0, 0.1), 0 0 12px rgba(255, 0, 0, 0.15);
-            }
-            50% {
-                border-color: rgba(255, 0, 0, 0.15);
-                box-shadow: inset 0 0 6px rgba(255, 0, 0, 0.05), 0 0 6px rgba(255, 0, 0, 0.05);
-            }
-        }
-
-        @keyframes dimBlinkHeader {
-            0%, 100% { text-shadow: 0 0 6px rgba(255, 26, 26, 0.4); opacity: 1; }
-            50% { text-shadow: 0 0 2px rgba(255, 26, 26, 0.1); opacity: 0.85; }
-        }
-
+        /* Melty Blinking Neon Cards */
         .neon-card {
-            border: 1px solid rgba(255, 0, 0, 0.35);
-            border-radius: 25px;
-            padding: 25px;
-            margin-bottom: 28px;
-            background-color: rgba(13, 13, 15, 0.95);
-            animation: dimBlink 3.5s infinite ease-in-out;
+            border: 1.5px solid var(--red);
+            border-radius: 18px;
+            padding: 22px 18px;
+            margin-bottom: 24px;
+            background: var(--card-surface);
             position: relative;
-            transition: all 0.3s ease;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            animation: meltyNeonBlink 3.6s infinite;
         }
-        
+
         .neon-card:nth-child(even) {
-            animation-duration: 4.5s;
+            animation-delay: -1.8s;
+            animation-duration: 4.4s;
+        }
+
+        .neon-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--red), var(--gold), #ff5500, var(--red));
+            background-size: 300% 300%;
+            animation: meltyBarFlow 3s linear infinite;
         }
 
         .neon-card:hover {
-            border-color: rgba(255, 0, 0, 0.5);
-            box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.15), 0 0 18px rgba(255, 0, 0, 0.25);
-            animation-play-state: paused;
+            transform: translateY(-4px) scale(1.01);
         }
 
         .card-title {
-            color: #ff1a1a;
-            font-size: 1.55rem;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gold);
+            font-size: 1.15rem;
             text-align: center;
             margin-bottom: 18px;
-            font-weight: 700;
-            border-bottom: 1.5px solid rgba(255, 0, 0, 0.4);
-            padding-bottom: 8px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 4px rgba(255, 26, 26, 0.3);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--gold-glow), 0 0 20px var(--red-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card-title::before, .card-title::after {
+            content: "";
+            height: 2px;
+            flex: 1;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--red));
+        }
+
+        .card-title::after {
+            background: linear-gradient(90deg, var(--red), var(--gold), transparent);
         }
 
         .about-text {
-            color: #cccccc;
-            font-size: 0.98rem;
-            line-height: 1.6;
+            color: #e6e6eb;
+            font-size: 1.04rem;
+            line-height: 1.65;
             text-align: center;
+            font-weight: 600;
         }
 
+        .about-text strong {
+            color: var(--gold);
+            text-shadow: 0 0 8px var(--gold-glow);
+        }
+
+        /* Powerful Melty Skills */
         .skill-item {
             margin-bottom: 16px;
         }
 
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+
         .skill-name {
-            font-size: 0.95rem;
-            color: #e0e0e0;
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #ffffff;
             margin-bottom: 6px;
             display: flex;
             justify-content: space-between;
+            letter-spacing: 0.7px;
+        }
+
+        .skill-percent {
+            color: var(--gold);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            text-shadow: 0 0 8px var(--gold-glow);
+            animation: blinkPulse 2s infinite;
         }
 
         .progress-bar {
             width: 100%;
             height: 12px;
-            background-color: #18181c;
-            border-radius: 6px;
+            background-color: #09090d;
+            border-radius: 50px;
             overflow: hidden;
-            border: 1px solid #25252a;
+            border: 1px solid rgba(255, 215, 0, 0.35);
+            padding: 1px;
         }
 
         .progress-fill {
             height: 100%;
-            background-color: #ff1a1a;
-            box-shadow: 0 0 8px rgba(255, 26, 26, 0.6);
-            border-radius: 6px;
+            background: linear-gradient(90deg, var(--red), var(--gold), #ff4d00, var(--gold), var(--red));
+            background-size: 300% 300%;
+            box-shadow: 0 0 12px var(--red-glow), 0 0 16px var(--gold-glow);
+            border-radius: 50px;
+            animation: meltyBarFlow 2.8s ease infinite;
         }
 
-        .project-list {
+        /* Scripts, Modules & Promotion Grid */
+        .module-list {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
         }
 
-        .project-item {
-            background-color: #131316;
-            padding: 14px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border-left: 4px solid #ff1a1a;
-            font-size: 0.98rem;
+        .module-item {
+            background: linear-gradient(90deg, rgba(255, 17, 40, 0.14), rgba(255, 215, 0, 0.08), rgba(10, 10, 14, 0.95));
+            padding: 13px 16px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            border-top: 1px solid rgba(255, 17, 40, 0.3);
+            border-right: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 17, 40, 0.3);
+            font-size: 1.02rem;
+            font-weight: 700;
             color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s ease;
         }
 
+        .module-item:hover {
+            transform: translateX(5px);
+            border-left-color: var(--red);
+            box-shadow: 0 0 16px rgba(255, 215, 0, 0.25);
+        }
+
+        .module-badge {
+            font-size: 0.7rem;
+            font-family: 'Orbitron', sans-serif;
+            background: rgba(255, 17, 40, 0.25);
+            color: var(--gold);
+            padding: 3px 8px;
+            border-radius: 5px;
+            border: 1px solid var(--gold);
+            white-space: nowrap;
+            animation: blinkPulse 2.2s infinite;
+        }
+
+        /* Form Styling */
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .form-input {
             width: 100%;
-            background-color: #121215;
-            border: 1px solid #2c2c35;
+            background-color: #060609;
+            border: 1px solid rgba(255, 215, 0, 0.35);
             border-radius: 10px;
-            padding: 14px;
+            padding: 13px 15px;
             color: #fff;
-            font-size: 0.95rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
             outline: none;
             transition: all 0.3s;
         }
 
+        .form-input::placeholder {
+            color: #777788;
+        }
+
         .form-input:focus {
-            border-color: #ff1a1a;
-            box-shadow: 0 0 8px rgba(255, 26, 26, 0.3);
-            background-color: #16161a;
+            border-color: var(--gold);
+            box-shadow: 0 0 14px var(--gold-glow), inset 0 0 8px rgba(255, 17, 40, 0.25);
+            background-color: #0c0c12;
         }
 
         textarea.form-input {
             resize: none;
-            height: 110px;
+            height: 105px;
         }
 
         .submit-btn {
             width: 100%;
-            background-color: transparent;
-            border: 1.5px solid #ff1a1a;
-            color: #ff1a1a;
-            padding: 13px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: bold;
+            background: linear-gradient(90deg, var(--red), #d4af37, var(--red));
+            background-size: 250% 250%;
+            border: 1px solid var(--gold);
+            color: #ffffff;
+            padding: 14px;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 900;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 5px rgba(255, 26, 26, 0.1);
+            letter-spacing: 2px;
+            text-shadow: 0 1px 4px #000;
+            animation: meltyBarFlow 3s linear infinite, meltyNeonBlink 3s infinite;
         }
 
         .submit-btn:hover {
-            background-color: #ff1a1a;
-            color: #fff;
-            box-shadow: 0 0 15px rgba(255, 26, 26, 0.5);
+            transform: scale(1.02);
         }
 
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Telegram Button (WhatsApp Removed) */
         .social-container {
             display: flex;
-            flex-direction: column;
-            gap: 14px;
-            align-items: center;
+            justify-content: center;
             width: 100%;
         }
 
         .social-btn {
-            width: 85%;
+            width: 100%;
             text-align: center;
-            padding: 12px;
-            border: 1.5px solid #ff1a1a;
-            border-radius: 25px;
-            color: #ff1a1a;
+            padding: 14px;
+            background: linear-gradient(90deg, rgba(255, 17, 40, 0.2), rgba(255, 215, 0, 0.2));
+            border: 1.5px solid var(--gold);
+            border-radius: 12px;
+            color: var(--gold);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.98rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
-        .social-btn.whatsapp-link {
-            border-color: #ff9900;
-            color: #ff9900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            animation: meltyNeonBlink 3.5s infinite;
         }
 
         .social-btn:hover {
-            background-color: rgba(255, 26, 26, 0.08);
-            box-shadow: 0 0 12px rgba(255, 26, 26, 0.3);
+            background: linear-gradient(90deg, var(--red), #e6b800);
+            color: #000000;
+            transform: translateY(-2px);
         }
 
-        .social-btn.whatsapp-link:hover {
-            background-color: rgba(255, 153, 0, 0.08);
-            box-shadow: 0 0 12px rgba(255, 153, 0, 0.3);
-        }
-
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 35px;
-            border-top: 1px solid #1c1c21;
-            padding-top: 22px;
+            margin-top: 28px;
+            border-top: 1px solid rgba(255, 215, 0, 0.25);
+            padding-top: 20px;
         }
 
         .signature {
-            color: #ffffff;
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            text-shadow: 0 0 4px rgba(255,255,255,0.2);
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            animation: meltyTitleShift 4s infinite;
         }
 
         .copyright {
-            color: #4a4a55;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            color: #777788;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -287,54 +486,105 @@
 
     <div class="wrapper">
         
+        <div class="top-status-bar">
+            <span><span class="status-dot"></span>TALHA GURU BRAND</span>
+            <span>TALHA // GURU // TALHA</span>
+        </div>
+
         <header>
-            <div class="main-title">ITX TALHA</div>
-            <div class="subtitle">MD OR BUG BOT PE</div>
+            <div class="main-title">ITX TALHA DEVLOPER</div>
+            <div class="subtitle">BOT SCRIPTS • EXPLOITS • RESELLER VIP</div>
         </header>
 
         <div class="neon-card">
             <div class="card-title">About Me</div>
             <p class="about-text">
-                I'm ITX Talha, a professional focused on WhatsApp MD Bots and automated testing systems. Specializing in deploying bug bots, security scripts, and advanced multi-device utility tools.
+                I'm <strong>ITX TALHA DEVLOPER</strong>, delivering high-power automation, <strong>BAN BOT SCRIPTS</strong>, <strong>BUG BOT SCRIPTS</strong>, <strong>MD BOT SCRIPTS</strong>, custom <strong>OWN BUG BOT MAKING</strong>, <strong>RESELLER PROMOTION</strong> systems, and <strong>PANEL BOT SCRIPT</strong> deployments.
             </p>
         </div>
 
         <div class="neon-card">
-            <div class="card-title">Skills</div>
+            <div class="card-title">Power Skills</div>
             
             <div class="skill-item">
-                <div class="skill-name"><span>HTML & CSS</span><span>0%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                <div class="skill-name"><span>HTML5 & CSS3 (Melty Neon UI)</span><span class="skill-percent">96%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 96%;"></div></div>
             </div>
 
             <div class="skill-item">
-                <div class="skill-name"><span>JavaScript (Node.js)</span><span>0%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                <div class="skill-name"><span>JavaScript & Node.js Engine</span><span class="skill-percent">95%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
             </div>
 
             <div class="skill-item">
-                <div class="skill-name"><span>WhatsApp MD Bot Dev</span><span>90%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                <div class="skill-name"><span>MD, Bug & Ban Bot Architecture</span><span class="skill-percent">98%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 98%;"></div></div>
             </div>
 
             <div class="skill-item">
-                <div class="skill-name"><span>Bug Exploits & Testing</span><span>70%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+                <div class="skill-name"><span>Panel Bot & Reseller Systems</span><span class="skill-percent">94%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 94%;"></div></div>
             </div>
         </div>
 
         <div class="neon-card">
-            <div class="card-title">Projects</div>
-            <ul class="project-list">
-                <li class="project-item">Multi-Device WhatsApp Bot</li>
-                <li class="project-item">Crash & Bug Bot Script</li>
-                <li class="project-item">Automated Deployment Server</li>
+            <div class="card-title">Bot Scripts & VIP Systems</div>
+            <ul class="module-list">
+                <li class="module-item">
+                    <span>BAN BOT SCRIPTS</span>
+                    <span class="module-badge">CORE</span>
+                </li>
+                <li class="module-item">
+                    <span>BUG BOT SCRIPTS</span>
+                    <span class="module-badge">HEAVY</span>
+                </li>
+                <li class="module-item">
+                    <span>MD BOT SCRIPTS</span>
+                    <span class="module-badge">MULTI-DEVICE</span>
+                </li>
+                <li class="module-item">
+                    <span>OWN BUG BOT MAKING</span>
+                    <span class="module-badge">CUSTOM BUILD</span>
+                </li>
+                <li class="module-item">
+                    <span>RESELLER PROMOTION</span>
+                    <span class="module-badge">VIP NETWORK</span>
+                </li>
+                <li class="module-item">
+                    <span>PANEL BOT SCRIPT</span>
+                    <span class="module-badge">AUTOMATION</span>
+                </li>
             </ul>
         </div>
 
         <div class="neon-card">
-            <div class="card-title">Contact Me via Telegram</div>
-            <form id="whatsappForm" onsubmit="sendToTelegram(event)">
+            <div class="card-title">Direct Telegram Message</div>
+            <form id="telegramForm" onsubmit="sendToTelegram(event)">
+                <div class="form-group">
+                    <input type="text" id="tgName" class="form-input" placeholder="Enter Your Name / Alias" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="tgMessage" class="form-input" placeholder="Select Script / Reseller Query / Message..." required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="submit-btn">Send to Telegram</button>
+            </form>
+        </div>
+
+        <div class="neon-card">
+            <div class="card-title">Telegram Channel & DM</div>
+            <div class="social-container">
+                <a href="https://t.me/Itxtalha750" target="_blank" class="social-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                    </svg>
+                    Telegram Official
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="signature">WEB DEV ITX_GURU410</div>
+            <div class="copyright">&copy; 2026 ITX_GURU410 | ALL RIGHTS RESEsubmit="sendToTelegram(event)">
                 <div class="form-group">
                     <input type="text" id="waName" class="form-input" placeholder="Your Name" required>
                 </div>
